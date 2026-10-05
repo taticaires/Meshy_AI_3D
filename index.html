@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estudo prático sobre Meshy AI, geração de modelos 3D e impressão 3D.">
-    <title>Meshy AI × 3D Printing</title>
+    <meta name="description" content="Workshop Prático: Modelagem para Impressão 3D com Meshy AI">
+    <title>Modelagem para Impressão 3D com Meshy AI</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* RESET & BASE */
         * {
             margin: 0;
             padding: 0;
@@ -43,7 +42,6 @@
             text-decoration: none;
         }
 
-        /* VARIÁVEIS */
         :root {
             --bg: #08090c;
             --bg-soft: #0e1015;
@@ -85,7 +83,7 @@
         .logo {
             font-family: "Space Grotesk", sans-serif;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             letter-spacing: -0.5px;
         }
 
@@ -95,13 +93,13 @@
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 22px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--muted);
-            font-size: 14px;
+            font-size: 13.5px;
             transition: color 0.25s;
         }
 
@@ -111,11 +109,11 @@
 
         /* HERO */
         .hero {
-            min-height: 100vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             position: relative;
-            padding-top: 100px;
+            padding-top: 110px;
             padding-bottom: 60px;
         }
 
@@ -148,7 +146,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 950px;
         }
 
         .eyebrow {
@@ -176,8 +174,8 @@
 
         .hero h1 {
             font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(2.8rem, 7vw, 5.8rem);
-            line-height: 1.05;
+            font-size: clamp(2.4rem, 6vw, 4.8rem);
+            line-height: 1.08;
             letter-spacing: -0.03em;
             margin-bottom: 20px;
         }
@@ -186,19 +184,14 @@
             color: var(--lime);
         }
 
-        .hero-subtitle {
-            max-width: 720px;
-            color: var(--muted);
-            font-size: clamp(1.05rem, 2vw, 1.3rem);
-        }
-
         .hero-question {
-            margin-top: 32px;
-            padding: 22px;
+            margin-top: 28px;
+            padding: 24px;
             border-left: 3px solid var(--lime);
             background: rgba(255,255,255,0.02);
-            border-radius: 0 12px 12px 0;
-            max-width: 760px;
+            border-radius: 0 14px 14px 0;
+            max-width: 820px;
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
             color: #d9dde5;
         }
 
@@ -216,11 +209,13 @@
             font-size: 14px;
             transition: all 0.25s ease;
             display: inline-block;
+            cursor: pointer;
         }
 
         .btn-primary {
             background: var(--lime);
             color: #090b08;
+            border: none;
         }
 
         .btn-primary:hover {
@@ -241,13 +236,13 @@
 
         /* SEÇÕES GERAIS */
         section {
-            padding: 100px 0;
+            padding: 90px 0;
             border-top: 1px solid var(--border);
         }
 
         .section-header {
-            max-width: 720px;
-            margin-bottom: 50px;
+            max-width: 780px;
+            margin-bottom: 45px;
         }
 
         .section-number {
@@ -261,81 +256,57 @@
 
         .section-title {
             font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(2rem, 4.5vw, 3.4rem);
-            line-height: 1.1;
+            font-size: clamp(1.9rem, 4vw, 3.2rem);
+            line-height: 1.12;
             letter-spacing: -0.02em;
         }
 
         .section-description {
-            margin-top: 16px;
+            margin-top: 14px;
             color: var(--muted);
             font-size: 1.05rem;
         }
 
-        /* CARDS / SOBRE */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 24px;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 32px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            background: var(--card-hover);
-            border-color: rgba(183,255,60,0.2);
-            transform: translateY(-2px);
-        }
-
-        .card h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 1.35rem;
-            margin-bottom: 14px;
-        }
-
-        .card p {
-            color: var(--muted);
-        }
-
-        .highlight {
-            color: var(--lime);
-            font-weight: 600;
-        }
-
         /* PIPELINE */
+        .objective-box {
+            background: rgba(183,255,60,0.03);
+            border: 1px solid rgba(183,255,60,0.2);
+            border-radius: 18px;
+            padding: 24px 28px;
+            margin-bottom: 30px;
+        }
+
+        .objective-box strong {
+            color: var(--lime);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
         .pipeline {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+            gap: 14px;
         }
 
         .pipeline-step {
-            padding: 24px 20px;
+            padding: 22px 18px;
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
         }
 
         .pipeline-number {
             color: var(--lime);
             font-size: 13px;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .pipeline-step h3 {
             font-family: "Space Grotesk", sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
         }
 
         .pipeline-step p {
@@ -343,148 +314,272 @@
             font-size: 13px;
         }
 
-        /* EXPERIMENTOS */
-        .experiment {
+        /* PREPARAÇÃO (ANTES DE TUDO) */
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+        }
+
+        .prep-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 26px;
+            transition: transform 0.25s ease;
+        }
+
+        .prep-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(183,255,60,0.2);
+        }
+
+        .prep-card .icon {
+            font-size: 2rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .prep-card h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .prep-card p {
+            color: var(--muted);
+            font-size: 13.5px;
+        }
+
+        /* EXPERIMENTOS & PASSOS */
+        .step-block {
+            margin-bottom: 100px;
+        }
+
+        .step-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-header {
+            margin-bottom: 30px;
+        }
+
+        .step-tag {
+            color: var(--lime);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step-header h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            letter-spacing: -0.02em;
+        }
+
+        .step-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            margin-bottom: 90px;
+            gap: 36px;
+            align-items: start;
         }
 
-        .experiment.reverse {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .experiment.reverse .experiment-text {
+        .step-layout.reverse .step-info {
             order: 2;
         }
 
-        .experiment.reverse .experiment-visual {
+        .step-layout.reverse .step-media {
             order: 1;
         }
 
-        .experiment-label {
-            color: var(--lime);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
+        .prompt-container {
+            background: #0d1015;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .prompt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 12px;
         }
 
-        .experiment h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
+        .prompt-header span {
+            font-size: 12px;
+            color: var(--lime);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .experiment-description {
-            color: var(--muted);
-            margin-bottom: 22px;
+        .btn-lang {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
+        .btn-lang:hover {
+            border-color: var(--lime);
+            color: var(--lime);
         }
 
-        .stat {
+        .prompt-text {
+            font-family: monospace;
+            font-size: 13px;
+            color: #d1d5db;
+            line-height: 1.5;
+            background: rgba(0,0,0,0.25);
             padding: 14px;
-            border-radius: 12px;
+            border-radius: 10px;
+            white-space: pre-line;
+        }
+
+        .comparison-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .comp-card {
             background: rgba(255,255,255,0.02);
             border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
         }
 
-        .stat strong {
-            display: block;
+        .comp-card h4 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 14px;
+            margin-bottom: 10px;
             color: var(--text);
-            font-size: 1.1rem;
         }
 
-        .stat span {
+        .comp-card ul {
+            list-style: none;
+            font-size: 13px;
             color: var(--muted);
-            font-size: 12px;
         }
 
-        .experiment-visual {
-            min-height: 380px;
-            border-radius: 20px;
+        .comp-card ul li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .comp-card ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--lime);
+        }
+
+        .insight-callout {
+            background: rgba(183,255,60,0.05);
+            border-left: 3px solid var(--lime);
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 20px;
+            font-size: 13.5px;
+            color: #e2e8f0;
+        }
+
+        .insight-callout strong {
+            color: var(--lime);
+        }
+
+        .hidden-geometry-card {
+            background: linear-gradient(145deg, #14111d, #0d0f13);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 16px;
+            padding: 22px;
+            margin-top: 22px;
+        }
+
+        .hidden-geometry-card h4 {
+            color: #c084fc;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .hidden-geometry-card p {
+            font-size: 13.5px;
+            color: var(--muted);
+        }
+
+        /* MÍDIAS E PLACEHOLDERS */
+        .media-box {
+            background: #0d1015;
             border: 1px solid var(--border);
-            background:
-                radial-gradient(circle at 70% 30%, rgba(139,92,246,0.15), transparent 40%),
-                radial-gradient(circle at 30% 70%, rgba(183,255,60,0.08), transparent 40%),
-                #0d1015;
+            border-radius: 18px;
+            min-height: 380px;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             overflow: hidden;
             position: relative;
         }
 
-        .experiment-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .image-placeholder {
-            text-align: center;
-            color: var(--muted);
+        .media-placeholder {
             padding: 30px;
+            color: var(--muted);
         }
 
-        .image-placeholder .placeholder-icon {
-            font-size: 3.5rem;
+        .media-placeholder .icon {
+            font-size: 3rem;
             margin-bottom: 12px;
+            display: block;
         }
 
-        .image-placeholder strong {
+        .media-placeholder strong {
             display: block;
             color: var(--text);
-            margin-bottom: 6px;
+            font-size: 15px;
+            margin-bottom: 4px;
         }
 
-        /* TABELA */
-        .comparison {
-            overflow-x: auto;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            background: var(--card);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 650px;
-        }
-
-        th, td {
-            padding: 16px 20px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-
-        th {
-            color: var(--lime);
+        .media-placeholder span {
             font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: rgba(255,255,255,0.02);
         }
 
-        td {
-            color: var(--muted);
-            font-size: 14px;
+        .media-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 14px;
         }
 
-        td:first-child {
-            color: var(--text);
-            font-weight: 600;
+        .media-grid-4 .media-box {
+            min-height: 120px;
+        }
+
+        .media-horizontal {
+            min-height: 200px;
+            margin-bottom: 14px;
+        }
+
+        .media-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .media-duo .media-box {
+            min-height: 240px;
         }
 
         /* APRENDIZADOS */
@@ -519,68 +614,16 @@
             font-size: 14px;
         }
 
-        /* CONCLUSÃO */
-        .conclusion {
-            background: #0b0c10;
-        }
-
-        .conclusion-box {
-            max-width: 840px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .conclusion-box h2 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(2.2rem, 5vw, 4.2rem);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        .conclusion-box h2 span {
-            color: var(--lime);
-        }
-
-        .conclusion-box p {
-            color: var(--muted);
-            font-size: 1.1rem;
-            margin-top: 20px;
-        }
-
-        .quote {
-            margin-top: 36px;
-            padding: 24px;
+        .final-quote {
+            margin-top: 40px;
+            padding: 26px;
             border: 1px solid rgba(183,255,60,0.25);
             border-radius: 16px;
             color: var(--lime);
             font-family: "Space Grotesk", sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            text-align: center;
             background: rgba(183,255,60,0.02);
-        }
-
-        /* WORKSHOP */
-        .workshop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .workshop-card {
-            padding: 28px;
-            border-radius: 18px;
-            background: var(--card);
-            border: 1px solid var(--border);
-        }
-
-        .workshop-card h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .workshop-card p {
-            color: var(--muted);
-            font-size: 14px;
         }
 
         /* FOOTER */
@@ -609,24 +652,26 @@
         }
 
         /* RESPONSIVO */
-        @media (max-width: 860px) {
+        @media (max-width: 880px) {
             .nav-links {
-                display: none; /* Em telas menores, limpa a barra para focar na leitura */
+                display: none;
             }
-
-            .about-grid,
-            .experiment,
-            .experiment.reverse {
+            .step-layout,
+            .step-layout.reverse {
                 grid-template-columns: 1fr;
             }
-
-            .experiment.reverse .experiment-text,
-            .experiment.reverse .experiment-visual {
+            .step-layout.reverse .step-info,
+            .step-layout.reverse .step-media {
                 order: initial;
             }
-
-            .experiment-visual {
-                min-height: 280px;
+            .comparison-cards {
+                grid-template-columns: 1fr;
+            }
+            .media-grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .media-duo {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -638,12 +683,10 @@
     <div class="container nav-inner">
         <a href="#inicio" class="logo">MESHY<span>×</span>3D</a>
         <ul class="nav-links">
-            <li><a href="#projeto">Projeto</a></li>
+            <li><a href="#preparacao">Preparação</a></li>
             <li><a href="#pipeline">Pipeline</a></li>
-            <li><a href="#experimentos">Experimentos</a></li>
-            <li><a href="#resultados">Resultados</a></li>
-            <li><a href="#conclusao">Conclusão</a></li>
-            <li><a href="#workshop">Workshop</a></li>
+            <li><a href="#passos">Passo a Passo</a></li>
+            <li><a href="#aprendizados">O que a IA faz?</a></li>
         </ul>
     </div>
 </nav>
@@ -652,246 +695,330 @@
 <header class="hero" id="inicio">
     <div class="container">
         <div class="hero-content">
-            <div class="eyebrow">Workshop • IA Generativa + 3D</div>
-            <h1>MESHY AI <span>×</span> 3D PRINTING</h1>
-            <p class="hero-subtitle">Do pixel ao objeto físico. Um estudo prático sobre geração de modelos 3D por inteligência artificial.</p>
+            <div class="eyebrow">Workshop Prático</div>
+            <h1>Modelagem para Impressão 3D com <span>Meshy AI</span></h1>
 
             <div class="hero-question">
                 <strong>Pergunta central:</strong><br>
-                Até que ponto uma IA generativa consegue transformar uma imagem 2D em um modelo 3D utilizável para impressão?
+                Até que ponto uma IA generativa consegue transformar diferentes tipos de referência em um modelo 3D coerente e potencialmente fabricável?
             </div>
 
             <div class="hero-buttons">
-                <a href="#experimentos" class="btn btn-primary">Explorar experimentos →</a>
-                <a href="#pipeline" class="btn btn-secondary">Ver pipeline</a>
+                <a href="#preparacao" class="btn btn-primary">Iniciar Passo a Passo →</a>
+                <a href="#pipeline" class="btn btn-secondary">Ver Pipeline</a>
             </div>
         </div>
     </div>
 </header>
 
-<!-- SOBRE O PROJETO -->
-<section id="projeto">
+<!-- ANTES DE TUDO: PREPARAÇÃO -->
+<section id="preparacao">
     <div class="container">
         <div class="section-header">
-            <div class="section-number">01 • Sobre o projeto</div>
-            <h2 class="section-title">Quando uma imagem vira geometria?</h2>
-            <p class="section-description">Este projeto investiga o uso do Meshy AI para transformar diferentes tipos de entrada em modelos tridimensionais.</p>
+            <div class="section-number">Antes de tudo</div>
+            <h2 class="section-title">Saiba como preparar a imagem antes de iniciar</h2>
+            <p class="section-description">A qualidade da geometria 3D gerada depende 90% da clareza da informação fornecida à IA. Siga estas diretrizes práticas:</p>
         </div>
 
-        <div class="about-grid">
-            <div class="card">
-                <h3>🎯 Objetivo</h3>
-                <p>Testar, de forma prática, como uma ferramenta de IA generativa reconstrói objetos e personagens em 3D a partir de diferentes formas de entrada.</p>
-                <br>
-                <p>Mais do que perguntar se a IA consegue <span class="highlight">gerar um modelo 3D</span>, queremos observar o que ela acerta, o que ela precisa inferir e onde surgem limitações.</p>
+        <div class="prep-grid">
+            <div class="prep-card">
+                <span class="icon">💡</span>
+                <h3>Iluminação e Enquadramento</h3>
+                <p>Priorize luz difusa e neutra sem sombras duras. Oclusões e contrastes extremos fazem a IA confundir sombras com relevos ou furos na malha.</p>
             </div>
 
-            <div class="card">
-                <h3>🧪 Abordagem</h3>
-                <p>Foram realizados três experimentos principais:</p>
-                <br>
-                <p><strong>01.</strong> Text → 3D</p>
-                <p><strong>02.</strong> Image → 3D</p>
-                <p><strong>03.</strong> Múltiplas vistas → 3D</p>
+            <div class="prep-card">
+                <span class="icon">⬜</span>
+                <h3>Fundo Branco Isolado</h3>
+                <p>Isole o objeto com fundo completamente limpo. Qualquer IA atual (ChatGPT, Photoshop, Photoroom) remove o fundo em segundos, evitando artefatos.</p>
+            </div>
+
+            <div class="prep-card">
+                <span class="icon">📐</span>
+                <h3>Múltiplos Ângulos em Imagem Única</h3>
+                <p>Ao trabalhar com vistas diferentes, use o ChatGPT para compor uma única imagem horizontal contendo 2, 3 ou 4 ângulos na mesma pose e escala.</p>
+            </div>
+
+            <div class="prep-card">
+                <span class="icon">🧍</span>
+                <h3>Poses com Pouca Oclusão</h3>
+                <p>Para personagens e figuras vivas, prefira poses em "A" ou com membros afastados do tronco para facilitar o fatiamento e a colocação de suportes.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- PIPELINE -->
+<!-- PIPELINE & OBJETIVO -->
 <section id="pipeline">
     <div class="container">
         <div class="section-header">
-            <div class="section-number">02 • Pipeline</div>
-            <h2 class="section-title">Do input ao modelo físico</h2>
-            <p class="section-description">O processo foi organizado como um laboratório prático de experimentação em cinco etapas:</p>
+            <div class="section-number">Pipeline do Workshop</div>
+            <h2 class="section-title">O fluxo do conceito à peça</h2>
+        </div>
+
+        <div class="objective-box">
+            <strong>🎯 Objetivo do Projeto</strong>
+            Investigar na prática como a IA generativa reconstrói volumes a partir de diferentes tipos de entrada (texto puro, imagem única, vistas compostas e estilos pré-definidos), analisando o que ela acerta, o que precisa inferir e suas reais limitações na manufatura aditiva.
         </div>
 
         <div class="pipeline">
             <div class="pipeline-step">
-                <div class="pipeline-number">01</div>
+                <div class="pipeline-number">Etapa 01</div>
                 <h3>Entrada</h3>
-                <p>Texto ou imagem de referência com detalhes da peça.</p>
+                <p>Prompt de texto descritivo ou imagens de referência limpas.</p>
             </div>
             <div class="pipeline-step">
-                <div class="pipeline-number">02</div>
+                <div class="pipeline-number">Etapa 02</div>
                 <h3>Geração</h3>
-                <p>Meshy AI interpreta e calcula a geometria tridimensional.</p>
+                <p>Interpretação e síntese volumétrica pelo motor do Meshy AI.</p>
             </div>
             <div class="pipeline-step">
-                <div class="pipeline-number">03</div>
-                <h3>Modelo</h3>
-                <p>Análise de malha, polígonos, espessura e topologia.</p>
+                <div class="pipeline-number">Etapa 03</div>
+                <h3>Topologia</h3>
+                <p>Inspeção de faces, estanqueidade (manifold) e detalhes.</p>
             </div>
             <div class="pipeline-step">
-                <div class="pipeline-number">04</div>
-                <h3>Avaliação</h3>
-                <p>Comparação de fidelidade e integridade estrutural (manifold).</p>
+                <div class="pipeline-number">Etapa 04</div>
+                <h3>Texturização</h3>
+                <p>Aplicação de mapas cromáticos e teste de identidade visual.</p>
             </div>
             <div class="pipeline-step">
-                <div class="pipeline-number">05</div>
-                <h3>Impressão</h3>
-                <p>Orientação, suportes em árvore e fatiamento no software.</p>
+                <div class="pipeline-number">Etapa 05</div>
+                <h3>Fatiamento</h3>
+                <p>Orientação, suportes em árvore e fabricação física.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EXPERIMENTOS -->
-<section id="experimentos">
+<!-- PASSOS DE GERAÇÃO (EXPERIMENTOS) -->
+<section id="passos">
     <div class="container">
         <div class="section-header">
-            <div class="section-number">03 • Experimentos</div>
-            <h2 class="section-title">Três entradas. Três comportamentos.</h2>
-            <p class="section-description">A mesma ideia, testada com diferentes níveis de informação fornecida à IA.</p>
+            <div class="section-number">Passo a Passo Prático</div>
+            <h2 class="section-title">Construindo e avaliando os modelos</h2>
+            <p class="section-description">Acompanhe a progressão prática de cada método de entrada no Meshy AI.</p>
         </div>
 
-        <!-- EXP 1 -->
-        <article class="experiment">
-            <div class="experiment-text">
-                <div class="experiment-label">Experimento 01</div>
-                <h3>Text → 3D</h3>
-                <p class="experiment-description">O primeiro teste utilizou apenas uma descrição textual para gerar um suporte de celular com estética tecnológica.</p>
-                
-                <div class="stats">
-                    <div class="stat"><strong>292.568</strong><span>faces</span></div>
-                    <div class="stat"><strong>146.228</strong><span>vértices</span></div>
-                    <div class="stat"><strong>Meshy 6</strong><span>versão utilizada</span></div>
-                    <div class="stat"><strong>✓</strong><span>printability indicada</span></div>
+        <!-- PASSO 3.1: TEXT TO 3D -->
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-tag">Passo 3.1</div>
+                <h3>Texto para 3D (Text → 3D)</h3>
+            </div>
+
+            <div class="step-layout">
+                <div class="step-info">
+                    <p>Nesta etapa, iniciamos gerando uma peça prática utilitária (suporte de celular) utilizando exclusivamente engenharia de prompt descritiva.</p>
+
+                    <div class="prompt-container">
+                        <div class="prompt-header">
+                            <span>Prompt Utilizado</span>
+                            <button class="btn-lang" onclick="togglePrompt()">Traduzir para Português</button>
+                        </div>
+                        <div class="prompt-text" id="prompt-display">A compact tabletop smartphone stand with a futuristic gaming and technology-inspired aesthetic. Angled back support to hold a smartphone upright at a comfortable viewing angle, wide and stable flat base, and a central opening at the bottom for a charging cable. Single-piece design with no moving parts. Minimalist angular geometric details and subtle embossed tech patterns. Solid, sturdy construction with smooth surfaces and rounded edges. Designed as a practical object for FDM 3D printing.</div>
+                    </div>
+
+                    <div class="comparison-cards">
+                        <div class="comp-card">
+                            <h4>O que esperávamos:</h4>
+                            <ul>
+                                <li>Suporte estável</li>
+                                <li>Encaixe para smartphone</li>
+                                <li>Abertura para cabo</li>
+                                <li>Peça única</li>
+                                <li>Geometria adequada para FDM</li>
+                            </ul>
+                        </div>
+                        <div class="comp-card">
+                            <h4>O que aconteceu:</h4>
+                            <p style="font-size: 13px; color: var(--muted);">A IA gerou um objeto visualmente futurista e coerente, mas <strong>não respeitou a abertura funcional para a passagem do cabo</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="insight-callout">
+                        💡 <strong>Lição Prática:</strong> Prompt correto ≠ resultado funcional garantido. A IA foca na harmonia visual e não nas restrições físicas de uso.
+                    </div>
                 </div>
 
-                <p class="experiment-description">
-                    <strong>Principal limitação:</strong> apesar da solicitação de uma abertura para passagem do cabo, o modelo gerado não apresentou uma solução dimensionalmente funcional.
-                </p>
-            </div>
-            <div class="experiment-visual">
-                <!-- Para substituir pela imagem real: <img src="imagens/suporte-celular.png" alt="Suporte Celular Meshy"> -->
-                <div class="image-placeholder">
-                    <div class="placeholder-icon">🧊</div>
-                    <strong>IMAGEM DO SUPORTE</strong>
-                    <span>Substituir pelo print do modelo fatiado/render</span>
+                <div class="step-media">
+                    <div class="media-box">
+                        <!-- Substituir por: <img src="suporte.png" alt="Suporte Celular"> -->
+                        <div class="media-placeholder">
+                            <span class="icon">🧊</span>
+                            <strong>MODELO 3D: SUPORTE</strong>
+                            <span>Substituir pelo print do suporte gerado</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </article>
+        </div>
 
-        <!-- EXP 2 -->
-        <article class="experiment reverse">
-            <div class="experiment-text">
-                <div class="experiment-label">Experimento 02</div>
-                <h3>Image → 3D</h3>
-                <p class="experiment-description">Uma imagem única de referência frontal foi utilizada para gerar um modelo de personagem com detalhes complexos.</p>
-                
-                <div class="stats">
-                    <div class="stat"><strong>1.750.596</strong><span>faces</span></div>
-                    <div class="stat"><strong>875.278</strong><span>vértices</span></div>
-                    <div class="stat"><strong>Meshy 7.1</strong><span>Flagship</span></div>
-                    <div class="stat"><strong>✓</strong><span>printability indicada</span></div>
-                </div>
-
-                <p class="experiment-description">
-                    O modelo preservou detalhes importantes (pose, traje, relevos e símbolos). Houve inferência plausível das costas e partes oclusas que não estavam visíveis na foto.
-                </p>
+        <!-- PASSO 3.2: IMAGE TO 3D -->
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-tag">Passo 3.2</div>
+                <h3>Imagem para 3D (Image → 3D)</h3>
             </div>
-            <div class="experiment-visual">
-                <!-- Para substituir pela imagem real: <img src="imagens/spider-3d.png" alt="Modelo do Personagem"> -->
-                <div class="image-placeholder">
-                    <div class="placeholder-icon">🕷️</div>
-                    <strong>IMAGENS DO MODELO</strong>
-                    <span>Vistas frontal, lateral e traseira</span>
-                </div>
-            </div>
-        </article>
 
-        <!-- EXP 3 -->
-        <article class="experiment">
-            <div class="experiment-text">
-                <div class="experiment-label">Experimento 03</div>
-                <h3>Múltiplas vistas → 3D</h3>
-                <p class="experiment-description">Para maximizar a precisão anatômica, foram combinadas quatro vistas de um mesmo animal em uma única imagem composta de referência.</p>
-                
-                <div class="stats">
-                    <div class="stat"><strong>667.120</strong><span>faces</span></div>
-                    <div class="stat"><strong>333.530</strong><span>vértices iniciais</span></div>
-                    <div class="stat"><strong>355.476</strong><span>pós-textura</span></div>
-                    <div class="stat"><strong>✓</strong><span>printability indicada</span></div>
+            <div class="step-layout reverse">
+                <div class="step-info">
+                    <p>O próximo passo utilizou apenas uma única imagem de referência frontal: o Homem-Aranha em uma pose estática com detalhes no traje.</p>
+
+                    <div class="comparison-cards" style="margin-top: 15px;">
+                        <div class="comp-card" style="grid-column: span 2;">
+                            <h4>O que a IA conseguiu reconstruir?</h4>
+                            <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+                                <li>Pose original</li>
+                                <li>Anatomia geral</li>
+                                <li>Textura do traje</li>
+                                <li>Teias e relevos</li>
+                                <li>Olhos e lentes</li>
+                                <li>Símbolo frontal</li>
+                                <li>Partes não visíveis diretamente</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="hidden-geometry-card">
+                        <h4>🧠 Geometria Oculta: A IA inventou o que não viu</h4>
+                        <p>O símbolo de aranha nas costas <strong>não existia na foto frontal de entrada</strong>, mas apareceu modelado nas costas do 3D. Como o modelo não tinha visão traseira, ele inferiu e completou a anatomia baseado no seu repertório prévio do personagem.</p>
+                    </div>
                 </div>
 
-                <p class="experiment-description">
-                    A IA identificou a espécie e aplicou as cores de forma convincente. Contudo, a geometria tendeu a uma média genérica da raça ao invés da morfologia exata da foto.
-                </p>
-            </div>
-            <div class="experiment-visual">
-                <!-- Para substituir pela imagem real: <img src="imagens/kiara-3d.png" alt="Composição Kiara"> -->
-                <div class="image-placeholder">
-                    <div class="placeholder-icon">🐶</div>
-                    <strong>KIARA • VISTAS + MODELO 3D</strong>
-                    <span>Composição das 4 vistas e o resultado 3D</span>
+                <div class="step-media">
+                    <div class="media-duo">
+                        <div class="media-box">
+                            <!-- Substituir por: <img src="spiderman-ref.png" alt="Referência Frontal"> -->
+                            <div class="media-placeholder">
+                                <span class="icon">🖼️</span>
+                                <strong>IMAGEM DE ENTRADA</strong>
+                                <span>Foto 2D de referência</span>
+                            </div>
+                        </div>
+                        <div class="media-box">
+                            <!-- Substituir por: <img src="spiderman-3d.png" alt="Modelo 3D Costas"> -->
+                            <div class="media-placeholder">
+                                <span class="icon">🕷️</span>
+                                <strong>MODELO GERADO</strong>
+                                <span>Vistas com as costas e símbolo inferido</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </article>
+        </div>
+
+        <!-- PASSO 3.3: MÚLTIPLOS ÂNGULOS -->
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-tag">Passo 3.3</div>
+                <h3>Múltiplos Ângulos (Image → 3D Composta)</h3>
+            </div>
+
+            <div class="step-layout">
+                <div class="step-info">
+                    <p>Para elevar a fidelidade, utilizamos fotos da Kiara. Primeiro, enviamos 4 fotos para o ChatGPT unificar em uma única composição de 4 ângulos limpos em fundo branco.</p>
+
+                    <div class="comp-card" style="margin: 18px 0;">
+                        <h4>Avaliação da Geometria vs Textura</h4>
+                        <p style="font-size: 13.5px; color: var(--muted); margin-bottom: 8px;">
+                            • <strong>Geometria Bruta:</strong> A modelagem não captou fielmente a Kiara (que é mais baixinha e gordinha), tendendo a uma silhueta genérica de cão padrão.
+                        </p>
+                        <p style="font-size: 13.5px; color: var(--muted);">
+                            • <strong>Após Texturização:</strong> O resultado visual mudou radicalmente. As cores e manchas fiéis à referência trouxeram de volta a identidade do animal.
+                        </p>
+                    </div>
+
+                    <div class="insight-callout">
+                        🐶 <strong>Aparência vs Estrutura:</strong> A cor pode compensar a percepção de identidade visual onde a geometria anatômica ainda é genérica.
+                    </div>
+                </div>
+
+                <div class="step-media">
+                    <!-- 4 Fotos Originais -->
+                    <div class="media-grid-4">
+                        <div class="media-box"><div class="media-placeholder"><span>Foto 1</span></div></div>
+                        <div class="media-box"><div class="media-placeholder"><span>Foto 2</span></div></div>
+                        <div class="media-box"><div class="media-placeholder"><span>Foto 3</span></div></div>
+                        <div class="media-box"><div class="media-placeholder"><span>Foto 4</span></div></div>
+                    </div>
+
+                    <!-- Imagem Composta Única -->
+                    <div class="media-box media-horizontal">
+                        <!-- Substituir por: <img src="kiara-composta.png" alt="Composição 4 Vistas"> -->
+                        <div class="media-placeholder">
+                            <span class="icon">🖼️</span>
+                            <strong>IMAGEM COMPOSTA (CHATGPT)</strong>
+                            <span>4 ângulos unificados em fundo branco</span>
+                        </div>
+                    </div>
+
+                    <!-- Modelo Geometria vs Textura -->
+                    <div class="media-duo">
+                        <div class="media-box">
+                            <div class="media-placeholder">
+                                <strong>MALHA SEM TEXTURA</strong>
+                                <span>Geometria genérica</span>
+                            </div>
+                        </div>
+                        <div class="media-box">
+                            <div class="media-placeholder">
+                                <strong>MODELO COLORIZADO</strong>
+                                <span>Textura com identidade real</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PASSO 3.4: ESTILO CHIBI -->
+        <div class="step-block">
+            <div class="step-header">
+                <div class="step-tag">Passo 3.4</div>
+                <h3>Estilos Pré-definidos: Versão Chibi</h3>
+            </div>
+
+            <div class="step-layout reverse">
+                <div class="step-info">
+                    <p>O quarto passo testou o fluxo com um preset de estilo da plataforma: o gerador <strong>Chibi</strong> do Meshy AI.</p>
+
+                    <div class="comp-card" style="margin: 18px 0;">
+                        <h4>Fluxo de Geração e Créditos:</h4>
+                        <ul style="font-size: 13.5px;">
+                            <li><strong>Entrada:</strong> A mesma imagem multi-ângulo da Kiara.</li>
+                            <li><strong>Custo:</strong> 12 créditos consumidos na geração.</li>
+                            <li><strong>Opções geradas:</strong> Versão em pé e versão sentada.</li>
+                            <li><strong>Seleção:</strong> Optamos pela Kiara sentada, que apresentou excelente apelo estético e estrutural.</li>
+                        </ul>
+                    </div>
+
+                    <p style="font-size: 13.5px; color: var(--muted);">
+                        <em>Nota sobre monetização do Meshy:</em> Ao concluir a geração, a plataforma direciona para encomenda da miniatura física pronta, mas usuários com plano PRO podem baixar o arquivo 3D bruto para fatiamento próprio.
+                    </p>
+                </div>
+
+                <div class="step-media">
+                    <div class="media-box">
+                        <!-- Substituir por: <img src="kiara-chibi.png" alt="Kiara Chibi Sentada"> -->
+                        <div class="media-placeholder">
+                            <span class="icon">✨</span>
+                            <strong>KIARA CHIBI (SENTADA)</strong>
+                            <span>Resultado final com estilo estilizado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- RESULTADOS -->
-<section id="resultados">
+<!-- APRENDIZADOS (O QUE A IA FAZ) -->
+<section id="aprendizados">
     <div class="container">
         <div class="section-header">
-            <div class="section-number">04 • Resultados</div>
-            <h2 class="section-title">O que mudou quando alteramos a entrada?</h2>
-        </div>
-
-        <div class="comparison">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Critério</th>
-                        <th>Text → 3D</th>
-                        <th>Image → 3D</th>
-                        <th>Múltiplas Vistas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fidelidade visual</td>
-                        <td>Dependente do prompt</td>
-                        <td>Alta nos elementos visíveis</td>
-                        <td>Melhor cobertura de detalhes</td>
-                    </tr>
-                    <tr>
-                        <td>Geometria oculta</td>
-                        <td>Inferida pelo modelo</td>
-                        <td>Inferida estatisticamente</td>
-                        <td>Inferida a partir dos ângulos</td>
-                    </tr>
-                    <tr>
-                        <td>Restrições dimensionais</td>
-                        <td>Frequentemente ignoradas</td>
-                        <td>Dependente da perspectiva</td>
-                        <td>Mais consistente</td>
-                    </tr>
-                    <tr>
-                        <td>Identidade visual</td>
-                        <td>Genérica</td>
-                        <td>Alta fidelidade de estilo</td>
-                        <td>Alta fidelidade de textura</td>
-                    </tr>
-                    <tr>
-                        <td>Prontidão para Fatiador</td>
-                        <td>Requer ajuste de escala</td>
-                        <td>Requer suporte em árvore</td>
-                        <td>Necessita reparo de malha</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- APRENDIZADOS -->
-<section>
-    <div class="container">
-        <div class="section-header">
-            <div class="section-number">05 • Aprendizados</div>
+            <div class="section-number">Síntese</div>
             <h2 class="section-title">O que a IA realmente está fazendo?</h2>
         </div>
 
@@ -899,62 +1026,22 @@
             <div class="learning-card">
                 <div class="learning-number">01</div>
                 <h3>Ela não copia, estima.</h3>
-                <p>A IA gera uma hipótese geométrica plausível. Partes oclusas não são reconstruídas com exatidão métrica, e sim preenchidas com dados prováveis.</p>
+                <p>A IA gera uma hipótese volumétrica coerente. Superfícies ocultas ou ângulos não fornecidos são preenchidos com inferência estatística do modelo.</p>
             </div>
             <div class="learning-card">
                 <div class="learning-number">02</div>
                 <h3>Aparência ≠ Geometria.</h3>
-                <p>Um modelo pode parecer perfeito no viewport por conta da textura/mapa normal, mas possuir paredes finas demais ou malha interna oca que falha na impressão física.</p>
+                <p>Uma peça pode parecer pronta na tela graças a sombras e texturas ricas, mas apresentar paredes frágeis ou geometrias que falham na fatiadora física.</p>
             </div>
             <div class="learning-card">
                 <div class="learning-number">03</div>
-                <h3>Mais dados ≠ Perfeição.</h3>
-                <p>Fornecer múltiplos ângulos melhora consistência cromática, mas geometrias complexas ainda sofrem suavizações comuns em algoritmos de difusão 3D.</p>
+                <h3>Mais dados ≠ Perfeição individual.</h3>
+                <p>Fornecer múltiplos ângulos estabiliza as proporções gerais, mas traços biométricos específicos ainda tendem a se aproximar de modelos médios pré-treinados.</p>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- CONCLUSÃO -->
-<section class="conclusion" id="conclusao">
-    <div class="container">
-        <div class="conclusion-box">
-            <div class="section-number">06 • Conclusão</div>
-            <h2>Reconstruir <span>não é</span> reproduzir.</h2>
-            <p>O Meshy AI acelera dramaticamente a etapa de concept e blocagem 3D, mas o fatiador e a fabricação aditiva exigem tolerâncias físicas que requerem inspeção humana.</p>
-            <div class="quote">
-                "A IA gera uma interpretação tridimensional da referência. O olhar técnico do operador define se o modelo vira peça ou falha na mesa."
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- WORKSHOP -->
-<section id="workshop">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-number">07 • Workshop</div>
-            <h2 class="section-title">Boas práticas para fatiamento</h2>
-            <p class="section-description">Checklist essencial para levar o arquivo do Meshy até a mesa de impressão:</p>
-        </div>
-
-        <div class="workshop-grid">
-            <div class="workshop-card">
-                <h3>🧠 1. Preparação da Entrada</h3>
-                <p>Use fotos com iluminação neutra e sem sombras duras. Para personagens, poses em "T" ou "A" facilitam o cálculo de profundidade e a geração de suportes.</p>
-            </div>
-            <div class="workshop-card">
-                <h3>🧩 2. Reparo Manifold</h3>
-                <p>Arquivos exportados costumam ter vértices duplicados ou microfuros. Passe o arquivo pelo reparo automático do fatiador ou remesh para fechar a casca.</p>
-            </div>
-            <div class="workshop-card">
-                <h3>🌲 3. Suportes em Árvore</h3>
-                <p>Como geometrias de IA têm contornos orgânicos e saliências imprevisíveis, suportes tipo *tree/organic* economizam filamento e deixam menos marcas na peça.</p>
-            </div>
-            <div class="workshop-card">
-                <h3>📏 4. Escala e Tolerância</h3>
-                <p>Modelos de IA não possuem medidas métricas no mundo real. Redimensione no fatiador e confirme se as paredes mínimas têm pelo menos 1.2 a 1.6 mm.</p>
-            </div>
+        <div class="final-quote">
+            "A IA acelera o concept de semanas para minutos. O discernimento técnico do operador decide se o modelo é imprimível ou apenas visual."
         </div>
     </div>
 </section>
@@ -963,10 +1050,32 @@
 <footer>
     <div class="container footer-inner">
         <div class="footer-brand">MESHY<span>×</span>3D</div>
-        <div>Workshop • IA Generativa + Impressão 3D</div>
-        <div>Documentação Técnica</div>
+        <div>Modelagem para Impressão 3D com Meshy AI</div>
+        <div>Material do Workshop</div>
     </div>
 </footer>
+
+<script>
+    const promptEN = `A compact tabletop smartphone stand with a futuristic gaming and technology-inspired aesthetic. Angled back support to hold a smartphone upright at a comfortable viewing angle, wide and stable flat base, and a central opening at the bottom for a charging cable. Single-piece design with no moving parts. Minimalist angular geometric details and subtle embossed tech patterns. Solid, sturdy construction with smooth surfaces and rounded edges. Designed as a practical object for FDM 3D printing.`;
+
+    const promptPT = `Um suporte compacto de mesa para smartphone com estética futurista inspirada em tecnologia e games. Apoio traseiro angulado para segurar o smartphone na vertical em um ângulo de visão confortável, base plana ampla e estável, e uma abertura central na parte inferior para o cabo do carregador. Design em peça única sem partes móveis. Detalhes geométricos angulares minimalistas e padrões tecnológicos sutis em relevo. Construção sólida e resistente com superfícies lisas e bordas arredondadas. Projetado como um objeto prático para impressão 3D FDM.`;
+
+    let currentLang = 'EN';
+
+    function togglePrompt() {
+        const display = document.getElementById('prompt-display');
+        const btn = document.querySelector('.btn-lang');
+        if (currentLang === 'EN') {
+            display.innerText = promptPT;
+            btn.innerText = 'Ver em Inglês (Original)';
+            currentLang = 'PT';
+        } else {
+            display.innerText = promptEN;
+            btn.innerText = 'Traduzir para Português';
+            currentLang = 'EN';
+        }
+    }
+</script>
 
 </body>
 </html>
