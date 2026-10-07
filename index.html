@@ -560,6 +560,16 @@
             letter-spacing: 0.5px;
         }
 
+        /* IMAGEM AMPLIÁVEL (ZOOM-IN) */
+        .zoomable {
+            cursor: zoom-in;
+            transition: transform 0.25s ease, opacity 0.2s ease;
+        }
+
+        .zoomable:hover {
+            opacity: 0.9;
+        }
+
         /* 3D GRANDE HOMEM-ARANHA */
         .aranha-3d-grid {
             display: grid;
@@ -588,7 +598,7 @@
             object-fit: contain;
         }
 
-        /* FOTOS DISCRETAS KIARA */
+        /* FOTOS DA KIARA COM FOCO NA CABEÇA */
         .kiara-photos-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -600,7 +610,7 @@
             border-radius: 14px;
             overflow: hidden;
             border: 1px solid var(--border);
-            height: 110px;
+            height: 115px;
             background: #0d1015;
         }
 
@@ -608,6 +618,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 8%; /* Centraliza exatamente no rosto e cabeça */
+            transform: scale(1.15); /* Aproxima para valorizar os traços */
+            transform-origin: center 10%;
         }
 
         .kiara-composite-compact {
@@ -615,15 +628,16 @@
             overflow: hidden;
             border: 1px solid var(--border);
             background: #ffffff;
-            padding: 10px;
+            padding: 4px; /* Margem reduzida para maximizar a imagem */
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 200px;
+            height: 240px; /* Maior visualização interna */
         }
 
         .kiara-composite-compact img {
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
         }
 
@@ -732,6 +746,53 @@
         }
 
         .footer-brand span {
+            color: var(--lime);
+        }
+
+        /* MODAL / LIGHTBOX DE IMAGEM AMPLIADA */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(8, 9, 12, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: zoom-out;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .image-modal img {
+            max-width: 90vw;
+            max-height: 88vh;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            background: #ffffff;
+            cursor: default;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            color: var(--muted);
+            font-size: 32px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
             color: var(--lime);
         }
 
@@ -979,9 +1040,9 @@
                 </div>
 
                 <div class="step-media">
-                    <!-- Foto de Referência Compacta -->
+                    <!-- Foto de Referência Compacta (com zoom ao clicar) -->
                     <div class="ref-card-compact">
-                        <img src="ref_aranha.png" alt="Foto Frontal Homem-Aranha">
+                        <img src="ref_aranha.png" alt="Foto Frontal Homem-Aranha" class="zoomable" onclick="openModal(this.src, this.alt)">
                     </div>
                 </div>
             </div>
@@ -1043,17 +1104,17 @@
                 </div>
 
                 <div class="step-media">
-                    <!-- 4 Fotos Compactas da Kiara -->
+                    <!-- 4 Fotos Compactas da Kiara (com foco no rosto e zoom ao clicar) -->
                     <div class="kiara-photos-row">
-                        <div class="kiara-thumb"><img src="kiara_foto1.png" alt="Kiara Foto 1"></div>
-                        <div class="kiara-thumb"><img src="kiara_foto2.png" alt="Kiara Foto 2"></div>
-                        <div class="kiara-thumb"><img src="kiara_foto3.png" alt="Kiara Foto 3"></div>
-                        <div class="kiara-thumb"><img src="kiara_foto4.png" alt="Kiara Foto 4"></div>
+                        <div class="kiara-thumb"><img src="kiara_foto1.png" alt="Kiara Foto 1" class="zoomable" onclick="openModal(this.src, this.alt)"></div>
+                        <div class="kiara-thumb"><img src="kiara_foto2.png" alt="Kiara Foto 2" class="zoomable" onclick="openModal(this.src, this.alt)"></div>
+                        <div class="kiara-thumb"><img src="kiara_foto3.png" alt="Kiara Foto 3" class="zoomable" onclick="openModal(this.src, this.alt)"></div>
+                        <div class="kiara-thumb"><img src="kiara_foto4.png" alt="Kiara Foto 4" class="zoomable" onclick="openModal(this.src, this.alt)"></div>
                     </div>
 
-                    <!-- Composição ChatGPT Compacta -->
+                    <!-- Composição ChatGPT com bordas enxutas e imagem maior (zoom ao clicar) -->
                     <div class="kiara-composite-compact">
-                        <img src="kiara_composta.png" alt="Composição 4 Vistas Kiara ChatGPT">
+                        <img src="kiara_composta.png" alt="Composição 4 Vistas Kiara ChatGPT" class="zoomable" onclick="openModal(this.src, this.alt)">
                     </div>
                 </div>
             </div>
@@ -1088,7 +1149,7 @@
             </div>
         </div>
 
-        <!-- PASSO 3.4: ESTILO CHIBI (RESTAURADO E COMPLETO) -->
+        <!-- PASSO 3.4: ESTILO CHIBI -->
         <div class="step-block">
             <div class="step-header">
                 <div class="step-tag">Passo 3.4</div>
@@ -1161,7 +1222,7 @@
     </div>
 </section>
 
-<!-- CONCLUSÃO DO PROJETO (RESTAURADA) -->
+<!-- CONCLUSÃO DO PROJETO -->
 <section class="conclusion" id="conclusao">
     <div class="container">
         <div class="conclusion-box">
@@ -1186,6 +1247,12 @@
     </div>
 </footer>
 
+<!-- MODAL / LIGHTBOX PARA ZOOM DE IMAGEM -->
+<div class="image-modal" id="imageModal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img id="modalImg" src="" alt="Imagem ampliada" onclick="event.stopPropagation()">
+</div>
+
 <script>
     const promptEN = `A compact tabletop smartphone stand with a futuristic gaming and technology-inspired aesthetic. Angled back support to hold a smartphone upright at a comfortable viewing angle, wide and stable flat base, and a central opening at the bottom for a charging cable. Single-piece design with no moving parts. Minimalist angular geometric details and subtle embossed tech patterns. Solid, sturdy construction with smooth surfaces and rounded edges. Designed as a practical object for FDM 3D printing.`;
 
@@ -1206,6 +1273,26 @@
             currentLang = 'EN';
         }
     }
+
+    /* FUNÇÕES DO MODAL DE ZOOM */
+    function openModal(src, alt) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = src;
+        modalImg.alt = alt;
+        modal.classList.add('active');
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.remove('active');
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
 </script>
 
 </body>
