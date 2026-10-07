@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
+    <!-- Script Oficial Google Model Viewer para 3D Interativo Web -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -267,6 +270,43 @@
             font-size: 1.05rem;
         }
 
+        /* PREPARAÇÃO */
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+        }
+
+        .prep-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 26px;
+            transition: transform 0.25s ease;
+        }
+
+        .prep-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(183,255,60,0.2);
+        }
+
+        .prep-card .icon {
+            font-size: 2rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .prep-card h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .prep-card p {
+            color: var(--muted);
+            font-size: 13.5px;
+        }
+
         /* PIPELINE */
         .objective-box {
             background: rgba(183,255,60,0.03);
@@ -314,46 +354,9 @@
             font-size: 13px;
         }
 
-        /* PREPARAÇÃO (ANTES DE TUDO) */
-        .prep-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 18px;
-        }
-
-        .prep-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 26px;
-            transition: transform 0.25s ease;
-        }
-
-        .prep-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(183,255,60,0.2);
-        }
-
-        .prep-card .icon {
-            font-size: 2rem;
-            margin-bottom: 14px;
-            display: block;
-        }
-
-        .prep-card h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-
-        .prep-card p {
-            color: var(--muted);
-            font-size: 13.5px;
-        }
-
-        /* EXPERIMENTOS & PASSOS */
+        /* PASSOS E EXPERIMENTOS */
         .step-block {
-            margin-bottom: 100px;
+            margin-bottom: 110px;
         }
 
         .step-block:last-child {
@@ -361,7 +364,7 @@
         }
 
         .step-header {
-            margin-bottom: 30px;
+            margin-bottom: 26px;
         }
 
         .step-tag {
@@ -520,12 +523,12 @@
             color: var(--muted);
         }
 
-        /* MÍDIAS E PLACEHOLDERS */
+        /* CONTAINERS 3D E MÍDIAS */
         .media-box {
             background: #0d1015;
             border: 1px solid var(--border);
             border-radius: 18px;
-            min-height: 380px;
+            min-height: 420px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -534,26 +537,40 @@
             position: relative;
         }
 
-        .media-placeholder {
-            padding: 30px;
-            color: var(--muted);
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            background-color: #0d1015;
+            --poster-color: transparent;
+            outline: none;
         }
 
-        .media-placeholder .icon {
-            font-size: 3rem;
-            margin-bottom: 12px;
-            display: block;
+        .badge-3d {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(8,9,12,0.85);
+            border: 1px solid var(--border);
+            color: var(--lime);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            z-index: 10;
+            pointer-events: none;
+            letter-spacing: 0.5px;
         }
 
-        .media-placeholder strong {
-            display: block;
-            color: var(--text);
-            font-size: 15px;
-            margin-bottom: 4px;
+        .grid-trio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
         }
 
-        .media-placeholder span {
-            font-size: 12px;
+        .grid-trio .media-box {
+            min-height: 380px;
         }
 
         .media-grid-4 {
@@ -563,13 +580,34 @@
             margin-bottom: 14px;
         }
 
-        .media-grid-4 .media-box {
-            min-height: 120px;
+        .media-grid-4 .photo-card {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            height: 110px;
+            background: #0d1015;
+        }
+
+        .media-grid-4 .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .media-horizontal {
-            min-height: 200px;
+            min-height: 220px;
             margin-bottom: 14px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: #ffffff;
+            padding: 8px;
+        }
+
+        .media-horizontal img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .media-duo {
@@ -579,7 +617,7 @@
         }
 
         .media-duo .media-box {
-            min-height: 240px;
+            min-height: 380px;
         }
 
         /* APRENDIZADOS */
@@ -652,7 +690,7 @@
         }
 
         /* RESPONSIVO */
-        @media (max-width: 880px) {
+        @media (max-width: 950px) {
             .nav-links {
                 display: none;
             }
@@ -664,14 +702,20 @@
             .step-layout.reverse .step-media {
                 order: initial;
             }
+            .grid-trio {
+                grid-template-columns: 1fr;
+            }
+            .media-duo {
+                grid-template-columns: 1fr;
+            }
             .comparison-cards {
                 grid-template-columns: 1fr;
             }
             .media-grid-4 {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .media-duo {
-                grid-template-columns: 1fr;
+            .media-box, model-viewer {
+                min-height: 320px;
             }
         }
     </style>
@@ -711,7 +755,7 @@
     </div>
 </header>
 
-<!-- ANTES DE TUDO: PREPARAÇÃO -->
+<!-- PREPARAÇÃO -->
 <section id="preparacao">
     <div class="container">
         <div class="section-header">
@@ -797,7 +841,7 @@
         <div class="section-header">
             <div class="section-number">Passo a Passo Prático</div>
             <h2 class="section-title">Construindo e avaliando os modelos</h2>
-            <p class="section-description">Acompanhe a progressão prática de cada método de entrada no Meshy AI.</p>
+            <p class="section-description">Acompanhe a progressão prática de cada método de entrada no Meshy AI e interaja em 360° com os modelos:</p>
         </div>
 
         <!-- PASSO 3.1: TEXT TO 3D -->
@@ -837,24 +881,28 @@
                     </div>
 
                     <div class="insight-callout">
-                        💡 <strong>Lição Prática:</strong> Prompt correto ≠ resultado funcional garantido. A IA foca na harmonia visual e não nas restrições físicas de uso.
+                        💡 <strong>Lição Prática:</strong> Prompt correto ≠ resultado funcional garantido. A IA prioriza a harmonia visual antes das tolerâncias físicas de uso.
                     </div>
                 </div>
 
                 <div class="step-media">
                     <div class="media-box">
-                        <!-- Substituir por: <img src="suporte.png" alt="Suporte Celular"> -->
-                        <div class="media-placeholder">
-                            <span class="icon">🧊</span>
-                            <strong>MODELO 3D: SUPORTE</strong>
-                            <span>Substituir pelo print do suporte gerado</span>
-                        </div>
+                        <div class="badge-3d">Interativo 360°</div>
+                        <model-viewer 
+                            src="suporte.glb" 
+                            alt="Suporte de Celular gerado no Meshy AI" 
+                            auto-rotate 
+                            camera-controls 
+                            touch-action="pan-y"
+                            shadow-intensity="1" 
+                            exposure="1">
+                        </model-viewer>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- PASSO 3.2: IMAGE TO 3D -->
+        <!-- PASSO 3.2: IMAGE TO 3D (HOMEM-ARANHA) -->
         <div class="step-block">
             <div class="step-header">
                 <div class="step-tag">Passo 3.2</div>
@@ -871,11 +919,10 @@
                             <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
                                 <li>Pose original</li>
                                 <li>Anatomia geral</li>
-                                <li>Textura do traje</li>
-                                <li>Teias e relevos</li>
-                                <li>Olhos e lentes</li>
+                                <li>Relevo das teias na malha</li>
+                                <li>Lentes e olhos</li>
                                 <li>Símbolo frontal</li>
-                                <li>Partes não visíveis diretamente</li>
+                                <li>Superfícies não visíveis</li>
                             </ul>
                         </div>
                     </div>
@@ -887,29 +934,46 @@
                 </div>
 
                 <div class="step-media">
-                    <div class="media-duo">
-                        <div class="media-box">
-                            <!-- Substituir por: <img src="spiderman-ref.png" alt="Referência Frontal"> -->
-                            <div class="media-placeholder">
-                                <span class="icon">🖼️</span>
-                                <strong>IMAGEM DE ENTRADA</strong>
-                                <span>Foto 2D de referência</span>
-                            </div>
+                    <!-- Trio: Referência + 3D Malha + 3D Texturizado -->
+                    <div class="grid-trio">
+                        <!-- 1. Foto de Referência -->
+                        <div class="media-box" style="padding: 10px;">
+                            <img src="ref_aranha.png" alt="Foto Frontal Homem-Aranha" style="width: 100%; height: 100%; object-fit: contain; border-radius: 12px;">
                         </div>
+
+                        <!-- 2. 3D Sem Textura -->
                         <div class="media-box">
-                            <!-- Substituir por: <img src="spiderman-3d.png" alt="Modelo 3D Costas"> -->
-                            <div class="media-placeholder">
-                                <span class="icon">🕷️</span>
-                                <strong>MODELO GERADO</strong>
-                                <span>Vistas com as costas e símbolo inferido</span>
-                            </div>
+                            <div class="badge-3d">Malha 360°</div>
+                            <model-viewer 
+                                src="aranha_sem_textura.glb" 
+                                alt="Homem-Aranha Geometria Bruta" 
+                                auto-rotate 
+                                camera-controls 
+                                touch-action="pan-y"
+                                shadow-intensity="1" 
+                                exposure="1">
+                            </model-viewer>
+                        </div>
+
+                        <!-- 3. 3D Colorizado -->
+                        <div class="media-box">
+                            <div class="badge-3d">Colorizado 360°</div>
+                            <model-viewer 
+                                src="aranha_com_textura.glb" 
+                                alt="Homem-Aranha Texturizado" 
+                                auto-rotate 
+                                camera-controls 
+                                touch-action="pan-y"
+                                shadow-intensity="1" 
+                                exposure="1">
+                            </model-viewer>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- PASSO 3.3: MÚLTIPLOS ÂNGULOS -->
+        <!-- PASSO 3.3: MÚLTIPLOS ÂNGULOS (KIARA) -->
         <div class="step-block">
             <div class="step-header">
                 <div class="step-tag">Passo 3.3</div>
@@ -921,7 +985,7 @@
                     <p>Para elevar a fidelidade, utilizamos fotos da Kiara. Primeiro, enviamos 4 fotos para o ChatGPT unificar em uma única composição de 4 ângulos limpos em fundo branco.</p>
 
                     <div class="comp-card" style="margin: 18px 0;">
-                        <h4>Avaliação da Geometria vs Textura</h4>
+                        <h4>Avaliação da Geometria vs Textura:</h4>
                         <p style="font-size: 13.5px; color: var(--muted); margin-bottom: 8px;">
                             • <strong>Geometria Bruta:</strong> A modelagem não captou fielmente a Kiara (que é mais baixinha e gordinha), tendendo a uma silhueta genérica de cão padrão.
                         </p>
@@ -938,42 +1002,50 @@
                 <div class="step-media">
                     <!-- 4 Fotos Originais -->
                     <div class="media-grid-4">
-                        <div class="media-box"><div class="media-placeholder"><span>Foto 1</span></div></div>
-                        <div class="media-box"><div class="media-placeholder"><span>Foto 2</span></div></div>
-                        <div class="media-box"><div class="media-placeholder"><span>Foto 3</span></div></div>
-                        <div class="media-box"><div class="media-placeholder"><span>Foto 4</span></div></div>
+                        <div class="photo-card"><img src="kiara_foto1.png" alt="Kiara Foto 1"></div>
+                        <div class="photo-card"><img src="kiara_foto2.png" alt="Kiara Foto 2"></div>
+                        <div class="photo-card"><img src="kiara_foto3.png" alt="Kiara Foto 3"></div>
+                        <div class="photo-card"><img src="kiara_foto4.png" alt="Kiara Foto 4"></div>
                     </div>
 
-                    <!-- Imagem Composta Única -->
-                    <div class="media-box media-horizontal">
-                        <!-- Substituir por: <img src="kiara-composta.png" alt="Composição 4 Vistas"> -->
-                        <div class="media-placeholder">
-                            <span class="icon">🖼️</span>
-                            <strong>IMAGEM COMPOSTA (CHATGPT)</strong>
-                            <span>4 ângulos unificados em fundo branco</span>
-                        </div>
+                    <!-- Composição 4 Ângulos ChatGPT -->
+                    <div class="media-horizontal">
+                        <img src="kiara_composta.png" alt="Composição 4 Vistas Kiara ChatGPT">
                     </div>
 
-                    <!-- Modelo Geometria vs Textura -->
+                    <!-- Comparação 3D: Malha Bruta vs Textura Real -->
                     <div class="media-duo">
                         <div class="media-box">
-                            <div class="media-placeholder">
-                                <strong>MALHA SEM TEXTURA</strong>
-                                <span>Geometria genérica</span>
-                            </div>
+                            <div class="badge-3d">Malha 360°</div>
+                            <model-viewer 
+                                src="kiara_sem_textura.glb" 
+                                alt="Kiara Geometria Bruta" 
+                                auto-rotate 
+                                camera-controls 
+                                touch-action="pan-y"
+                                shadow-intensity="1" 
+                                exposure="1">
+                            </model-viewer>
                         </div>
+
                         <div class="media-box">
-                            <div class="media-placeholder">
-                                <strong>MODELO COLORIZADO</strong>
-                                <span>Textura com identidade real</span>
-                            </div>
+                            <div class="badge-3d">Colorizado 360°</div>
+                            <model-viewer 
+                                src="kiara_textura.glb" 
+                                alt="Kiara Colorizada 3D" 
+                                auto-rotate 
+                                camera-controls 
+                                touch-action="pan-y"
+                                shadow-intensity="1" 
+                                exposure="1">
+                            </model-viewer>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- PASSO 3.4: ESTILO CHIBI -->
+        <!-- PASSO 3.4: ESTILO CHIBI (KIARA CHIBI) -->
         <div class="step-block">
             <div class="step-header">
                 <div class="step-tag">Passo 3.4</div>
@@ -982,7 +1054,7 @@
 
             <div class="step-layout reverse">
                 <div class="step-info">
-                    <p>O quarto passo testou o fluxo com um preset de estilo da plataforma: o gerador <strong>Chibi</strong> do Meshy AI.</p>
+                    <p>O quarto passo testou o fluxo com um preset estilizado da plataforma: o gerador <strong>Chibi</strong> do Meshy AI.</p>
 
                     <div class="comp-card" style="margin: 18px 0;">
                         <h4>Fluxo de Geração e Créditos:</h4>
@@ -990,7 +1062,7 @@
                             <li><strong>Entrada:</strong> A mesma imagem multi-ângulo da Kiara.</li>
                             <li><strong>Custo:</strong> 12 créditos consumidos na geração.</li>
                             <li><strong>Opções geradas:</strong> Versão em pé e versão sentada.</li>
-                            <li><strong>Seleção:</strong> Optamos pela Kiara sentada, que apresentou excelente apelo estético e estrutural.</li>
+                            <li><strong>Seleção:</strong> Optamos pela Kiara sentada, com excelente estética e solidez física para impressão.</li>
                         </ul>
                     </div>
 
@@ -1001,12 +1073,17 @@
 
                 <div class="step-media">
                     <div class="media-box">
-                        <!-- Substituir por: <img src="kiara-chibi.png" alt="Kiara Chibi Sentada"> -->
-                        <div class="media-placeholder">
-                            <span class="icon">✨</span>
-                            <strong>KIARA CHIBI (SENTADA)</strong>
-                            <span>Resultado final com estilo estilizado</span>
-                        </div>
+                        <div class="badge-3d">Interativo 360°</div>
+                        <!-- MODELO 3D REAL DA KIARA CHIBI -->
+                        <model-viewer 
+                            src="kiara_chibi.glb" 
+                            alt="Kiara Chibi Sentada 3D" 
+                            auto-rotate 
+                            camera-controls 
+                            touch-action="pan-y"
+                            shadow-intensity="1" 
+                            exposure="1">
+                        </model-viewer>
                     </div>
                 </div>
             </div>
@@ -1014,7 +1091,7 @@
     </div>
 </section>
 
-<!-- APRENDIZADOS (O QUE A IA FAZ) -->
+<!-- APRENDIZADOS -->
 <section id="aprendizados">
     <div class="container">
         <div class="section-header">
