@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Workshop Prático: Modelagem para Impressão 3D com Meshy AI">
+    <meta name="description" content="Workshop Prático: Modelagem para Impressão 3D com Meshy AI - Summit FMU Tech 2026.2">
     <title>Modelagem para Impressão 3D com Meshy AI</title>
 
     <!-- Google Fonts -->
@@ -95,7 +95,8 @@
 
         .nav-links {
             display: flex;
-            gap: 22px;
+            align-items: center;
+            gap: 20px;
             list-style: none;
         }
 
@@ -107,6 +108,26 @@
 
         .nav-links a:hover {
             color: var(--lime);
+        }
+
+        .nav-btn-download {
+            background: rgba(183,255,60,0.1);
+            border: 1px solid rgba(183,255,60,0.3);
+            color: var(--lime) !important;
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 12.5px !important;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-btn-download:hover {
+            background: var(--lime);
+            color: #090b08 !important;
+            transform: translateY(-1px);
         }
 
         /* HERO */
@@ -210,7 +231,9 @@
             font-weight: 600;
             font-size: 14px;
             transition: all 0.25s ease;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             cursor: pointer;
         }
 
@@ -381,7 +404,6 @@
             letter-spacing: -0.02em;
         }
 
-        /* LAYOUT DIVIDIDO */
         .step-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -560,7 +582,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* IMAGEM AMPLIÁVEL (ZOOM-IN) */
         .zoomable {
             cursor: zoom-in;
             transition: transform 0.25s ease, opacity 0.2s ease;
@@ -570,7 +591,6 @@
             opacity: 0.9;
         }
 
-        /* 3D GRANDE HOMEM-ARANHA */
         .aranha-3d-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -598,7 +618,6 @@
             object-fit: contain;
         }
 
-        /* FOTOS DA KIARA COM FOCO NA CABEÇA */
         .kiara-photos-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -618,8 +637,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 8%; /* Centraliza exatamente no rosto e cabeça */
-            transform: scale(1.15); /* Aproxima para valorizar os traços */
+            object-position: center 8%;
+            transform: scale(1.15);
             transform-origin: center 10%;
         }
 
@@ -628,11 +647,11 @@
             overflow: hidden;
             border: 1px solid var(--border);
             background: #ffffff;
-            padding: 4px; /* Margem reduzida para maximizar a imagem */
+            padding: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 240px; /* Maior visualização interna */
+            height: 240px;
         }
 
         .kiara-composite-compact img {
@@ -641,7 +660,6 @@
             object-fit: contain;
         }
 
-        /* 3D GRANDE KIARA */
         .kiara-3d-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -651,6 +669,100 @@
 
         .kiara-3d-grid .media-box {
             height: 480px;
+        }
+
+        /* SEÇÃO EXCLUSIVA DE MATERIAL DIDÁTICO / PDF */
+        .classroom-section {
+            background: linear-gradient(180deg, rgba(139,92,246,0.06) 0%, rgba(8,9,12,0) 100%);
+        }
+
+        .classroom-card {
+            background: linear-gradient(145deg, #12141c, #0e1017);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 22px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .classroom-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #c084fc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .classroom-title {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .classroom-desc {
+            color: var(--muted);
+            font-size: 14.5px;
+            margin-bottom: 22px;
+        }
+
+        .classroom-topics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .topic-pill {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #d1d5db;
+        }
+
+        .download-box {
+            background: rgba(8,9,12,0.7);
+            border: 1px dashed rgba(183,255,60,0.35);
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-icon {
+            font-size: 3rem;
+            margin-bottom: 14px;
+        }
+
+        .btn-download-main {
+            background: var(--lime);
+            color: #090b08;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14.5px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 20px rgba(183,255,60,0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .btn-download-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(183,255,60,0.35);
         }
 
         /* SÍNTESE E APRENDIZADOS */
@@ -749,7 +861,7 @@
             color: var(--lime);
         }
 
-        /* MODAL / LIGHTBOX DE IMAGEM AMPLIADA */
+        /* MODAL DE ZOOM */
         .image-modal {
             position: fixed;
             top: 0;
@@ -801,6 +913,10 @@
             .nav-links {
                 display: none;
             }
+            .classroom-card {
+                grid-template-columns: 1fr;
+                padding: 28px;
+            }
             .step-layout,
             .step-layout.reverse {
                 grid-template-columns: 1fr;
@@ -836,6 +952,7 @@
             <li><a href="#preparacao">Preparação</a></li>
             <li><a href="#pipeline">Pipeline</a></li>
             <li><a href="#passos">Passo a Passo</a></li>
+            <li><a href="#material-aula" class="nav-btn-download">Material da Aula 📥</a></li>
             <li><a href="#aprendizados">Síntese</a></li>
             <li><a href="#conclusao">Conclusão</a></li>
         </ul>
@@ -846,7 +963,7 @@
 <header class="hero" id="inicio">
     <div class="container">
         <div class="hero-content">
-            <div class="eyebrow">Workshop Prático</div>
+            <div class="eyebrow">Workshop Prático • Summit FMU Tech 2026.2</div>
             <h1>Modelagem para Impressão 3D com <span>Meshy AI</span></h1>
 
             <div class="hero-question">
@@ -856,7 +973,7 @@
 
             <div class="hero-buttons">
                 <a href="#preparacao" class="btn btn-primary">Iniciar Passo a Passo →</a>
-                <a href="#pipeline" class="btn btn-secondary">Ver Pipeline</a>
+                <a href="#material-aula" class="btn btn-secondary">Baixar Material de Aula 📄</a>
             </div>
         </div>
     </div>
@@ -1016,7 +1133,6 @@
                 <h3>Imagem para 3D (Image → 3D)</h3>
             </div>
 
-            <!-- FOTO COMPACTA + TEXTOS AO LADO -->
             <div class="step-layout reverse">
                 <div class="step-info">
                     <p>O próximo passo utilizou apenas uma única imagem de referência frontal: o Homem-Aranha em uma pose estática com detalhes no traje.</p>
@@ -1040,14 +1156,12 @@
                 </div>
 
                 <div class="step-media">
-                    <!-- Foto de Referência Compacta (com zoom ao clicar) -->
                     <div class="ref-card-compact">
                         <img src="ref_aranha.png" alt="Foto Frontal Homem-Aranha" class="zoomable" onclick="openModal(this.src, this.alt)">
                     </div>
                 </div>
             </div>
 
-            <!-- OS 2 MODELOS 3D GRANDES LADO A LADO -->
             <div class="aranha-3d-grid">
                 <div class="media-box">
                     <div class="badge-3d">Malha Bruta 360°</div>
@@ -1104,7 +1218,6 @@
                 </div>
 
                 <div class="step-media">
-                    <!-- 4 Fotos Compactas da Kiara (com foco no rosto e zoom ao clicar) -->
                     <div class="kiara-photos-row">
                         <div class="kiara-thumb"><img src="kiara_foto1.png" alt="Kiara Foto 1" class="zoomable" onclick="openModal(this.src, this.alt)"></div>
                         <div class="kiara-thumb"><img src="kiara_foto2.png" alt="Kiara Foto 2" class="zoomable" onclick="openModal(this.src, this.alt)"></div>
@@ -1112,14 +1225,12 @@
                         <div class="kiara-thumb"><img src="kiara_foto4.png" alt="Kiara Foto 4" class="zoomable" onclick="openModal(this.src, this.alt)"></div>
                     </div>
 
-                    <!-- Composição ChatGPT com bordas enxutas e imagem maior (zoom ao clicar) -->
                     <div class="kiara-composite-compact">
                         <img src="kiara_composta.png" alt="Composição 4 Vistas Kiara ChatGPT" class="zoomable" onclick="openModal(this.src, this.alt)">
                     </div>
                 </div>
             </div>
 
-            <!-- OS 2 MODELOS 3D DA KIARA GRANDES EM BAIXO -->
             <div class="kiara-3d-grid">
                 <div class="media-box">
                     <div class="badge-3d">Malha Bruta 360°</div>
@@ -1194,7 +1305,41 @@
     </div>
 </section>
 
-<!-- SÍNTESE (O QUE A IA REALMENTE ESTÁ FAZENDO) -->
+<!-- SEÇÃO ESTRATÉGICA: MATERIAL DA AULA (SLIDES PDF) -->
+<section id="material-aula" class="classroom-section">
+    <div class="container">
+        <div class="classroom-card">
+            <div>
+                <div class="classroom-meta">
+                    📚 Conteúdo Acadêmico • FMU
+                </div>
+                <h2 class="classroom-title">Material Teórico & Slides da Aula</h2>
+                <p class="classroom-desc">
+                    Apresentação completa utilizada pelo <strong>Prof. Luciano Tadeu</strong> no workshop matutino <em>Manufatura Aditiva: Impressora 3D</em> do Summit FMU Tech 2026.2. O material serve como guia fundamental para entender os limites de engenharia e os processos físicos por trás dos modelos digitais.
+                </p>
+
+                <div class="classroom-topics">
+                    <div class="topic-pill">✓ Fundamentos & ISO/ASTM 52900</div>
+                    <div class="topic-pill">✓ História & Evolução Maker</div>
+                    <div class="topic-pill">✓ Panorama de Mercado 2026</div>
+                    <div class="topic-pill">✓ Guia Hands-on de Fatiamento</div>
+                </div>
+            </div>
+
+            <div class="download-box">
+                <div class="download-icon">📑</div>
+                <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 6px;">Slides Completos</h3>
+                <p style="font-size: 13px; color: var(--muted);">Arquivo em PDF de alta qualidade para estudo e consulta prática.</p>
+                
+                <a href="material_aula_3d.pdf" download="Manufatura_Aditiva_Impressora_3D_FMU.pdf" class="btn-download-main">
+                    Baixar Slides da Aula (PDF) 📥
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SÍNTESE -->
 <section id="aprendizados">
     <div class="container">
         <div class="section-header">
@@ -1242,8 +1387,8 @@
 <footer>
     <div class="container footer-inner">
         <div class="footer-brand">MESHY<span>×</span>3D</div>
-        <div>Modelagem para Impressão 3D com Meshy AI</div>
-        <div>Material do Workshop • 2026</div>
+        <div>Modelagem para Impressão 3D com Meshy AI • Summit FMU Tech 2026.2</div>
+        <div>Material do Workshop</div>
     </div>
 </footer>
 
